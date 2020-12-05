@@ -20,12 +20,12 @@ public class Category {
     @OneToMany(mappedBy = "category", cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
     private List<Product> productList = new ArrayList<>();
 
-//    public Category() {
-//    }
-//
-//    public Category(String name) {
-//        this.name = name;
-//    }
+    public Category() {
+    }
+
+    public Category(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;

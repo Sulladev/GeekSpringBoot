@@ -22,6 +22,7 @@
             <th>ID</th>
             <th>Название</th>
             <th>Цена</th>
+            <th>Категория</th>
         </tr>
         </thead>
 
@@ -30,6 +31,7 @@
             <td th:text="${p.id}"/>
             <td th:text="${p.title}"/>
             <td th:text="#{text.products.price(${p.price})}"/>
+            <td th:text="${p.category.name}"/>
         </tr>
         </tbody>
     </table>

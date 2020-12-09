@@ -24,6 +24,10 @@ public class Product {
     @Column(name = "price")
     private Double price;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "create_date", updatable = false)
@@ -40,6 +44,13 @@ public class Product {
     public Product(String title, Double price) {
         this.title = title;
         this.price = price;
+    }
+
+    public Product(String title, Double price, Category category) {
+        this.title = title;
+        this.price = price;
+        this.category = category;
+        category.getProductList().add(this);
     }
 
     public Long getId() {
@@ -80,6 +91,14 @@ public class Product {
 
     public void setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override
